@@ -1,0 +1,12 @@
+{
+  "name": "@aerobeat/web-style-testbed",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "demo": "echo \"Add a repo-local Vite or static demo command when style scenes need serving.\"",
+    "serve": "echo \"Define host, port, cache busting, QR/link output, served roots, and secure-context handling before remote validation.\"",
+    "test": "echo \"Add style token tests as token coverage grows.\"",
+    "test:browser": "echo \"Add Playwright browser tests for theme scenes.\""
+  }
+}
