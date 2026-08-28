@@ -1,12 +1,9 @@
 // @ts-check
 
-/**
- * Demo root used by concrete repos as a starting point.
- *
- * @type {HTMLElement | null}
- */
-const app = document.querySelector("#app");
+import { aeroGameplayVisualTokenNames } from "../../src/index.js";
 
-if (app instanceof HTMLElement) {
-  app.textContent = "Replace this demo with repo-owned Web Components.";
-}
+const styles = getComputedStyle(document.documentElement);
+globalThis.__AERO_STYLE_TEST__ = Object.freeze({
+  ready: true,
+  values: Object.freeze(Object.fromEntries(Object.entries(aeroGameplayVisualTokenNames).map(([name, property]) => [name, styles.getPropertyValue(property).trim()])))
+});

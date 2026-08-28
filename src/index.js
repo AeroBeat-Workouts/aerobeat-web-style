@@ -13,3 +13,5 @@ export const aeroThemeCssPath = "./aero-theme.css";
  * @type {"@aerobeat/web-style"}
  */
 export const aeroStylePackageName = "@aerobeat/web-style";
+
+export { aeroGameplayVisualTokenDefaults, aeroGameplayVisualTokenNames } from "./visual-tokens.js";

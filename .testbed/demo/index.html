@@ -1,12 +1,5 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AeroBeat Standard Package Demo</title>
-  </head>
-  <body>
-    <main id="app"></main>
-    <script type="module" src="./main.js"></script>
-  </body>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AeroBeat Gameplay Visual Tokens</title><link rel="stylesheet" href="../../src/aero-theme.css"><style>main{display:grid;grid-template-columns:repeat(3,minmax(90px,1fr));gap:12px;padding:24px}.role{min-height:90px;border-radius:12px;display:grid;place-items:center;color:white;font-weight:700}.left{background:var(--aero-role-left)}.right{background:var(--aero-role-right)}.guard{background:var(--aero-role-guard)}.obstacle{background:repeating-linear-gradient(45deg,var(--aero-role-obstacle) 0 10px,#771f2b 10px 20px)}.receptor{background:var(--aero-role-receptor);color:var(--aero-color-ink)}.safe{background:var(--aero-role-safe);color:var(--aero-color-ink)}</style></head>
+<body><main><div class="role left">LEFT</div><div class="role right">RIGHT</div><div class="role guard">GUARD</div><div class="role obstacle">OBSTACLE</div><div class="role receptor">RECEPTOR</div><div class="role safe">SAFE</div></main><script type="module" src="./main.js"></script></body>
 </html>

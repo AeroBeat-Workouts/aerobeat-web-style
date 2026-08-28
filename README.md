@@ -4,47 +4,32 @@ Frutiger Aero inspired design tokens, base styles, and theme primitives for Aero
 
 ## Responsibility
 
-This repo owns CSS custom properties, reset/base styles, theme primitives, visual tokens, surface treatment, and style guidance consumed by AeroBeat Web Components and scenes.
+This repo owns CSS custom properties, reset/base styles, generic visual-role tokens, surface treatment, and style guidance consumed by AeroBeat Web Components and serializable theme projection.
 
-It does not own Web Component behavior, screens, gameplay rendering, camera/CV logic, input routing, content conversion, or assembly wiring.
+It does not own Web Component behavior, gameplay rendering/layout, timing, judgement, recipes, calibration, camera/CV, input, content conversion, session policy, or assembly wiring.
 
-## Public API Surface
+## Public API
 
-- `src/index.js` exports the package marker and token module path constants.
-- `src/aero-theme.css` defines the first Frutiger Aero token set with glassy surfaces, aquatic highlights, crisp focus rings, and restrained motion-ready colors.
+- `src/aero-theme.css` defines Frutiger Aero base tokens and generic gameplay roles for left, right, guard, obstacle, receptor, safe cells, backgrounds, feedback, hatching and dim overlays.
+- `aeroGameplayVisualTokenNames` exposes public CSS custom-property names.
+- `aeroGameplayVisualTokenDefaults` exposes serializable defaults for theme projection.
+- `aeroThemeCssPath` identifies the CSS entry point.
 
-## Adjacent Repos
+WebGL does not read CSS or import this package directly. Assembly resolves theme precedence and supplies serializable public theme tokens to `aerobeat-web-renderer`. DOM SVG consumers use `currentColor` with these variables.
 
-- `aerobeat-web-ui` consumes these tokens in `aero-*` components.
-- `aerobeat-web-assembly` applies the final product theme.
-- `aerobeat-web-renderer` will own WebGL2 gameplay visuals and should consume theme decisions through explicit contracts.
+## Boundaries
 
-## Allowed Imports
-
-Runtime JavaScript may import public exports from `@aerobeat/web-contracts` only when shared names are needed. CSS should expose `--aero-*` custom properties and avoid private coupling to UI internals.
-
-## Testbed Shape
-
-Style scenes must use `aero-*` components or documented style samples instead of one-off scene controls. Generated `.testbed/node_modules/@aerobeat/web-this-repo` is local state and must be recreated with:
-
-```bash
-npm run testbed:link-self
-```
-
-Do not commit installed `node_modules` folders or generated testbed symlinks.
+Runtime JavaScript may import documented public package exports only. CSS uses `--aero-*` properties and avoids coupling to UI internals. Obstacles have a non-color-only hatch token in addition to their role color. Visual tokens remain runtime-swappable and contain no scoring or converter policy.
 
 ## Validation
-
-Run before handoff:
 
 ```bash
 npm run check
 npm test
 npm run test:browser
+npm pack --dry-run
 ```
 
-The current validators are placeholder-level checks for JSDoc/no-escape posture, public import boundaries, component-only scenes, and console-noise expectations.
+Validation enforces JSDoc/no-escape posture, public import boundaries, component-only scenes, console-noise policy, package allowlisting, required public CSS declarations, and absence of gameplay-policy token names.
 
-## Documentation Handoff
-
-Keep repo-local decisions in `docs/decisions/`. Public contributor docs belong in `aerobeat-web-docs` after the visual direction is accepted.
+Implementation decisions live under `docs/decisions/`; public contributor docs belong in `aerobeat-web-docs` after the visual direction is accepted.
